@@ -6,6 +6,7 @@ import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Grid from '@mui/material/Grid2'; 
 import LineChart from '../components/linechart';
+import BoxPlot from '../components/boxplot';
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
 function Predict() {
@@ -214,6 +215,7 @@ function Predict() {
           {chartData && predictedprice !== 0 && (
             <Box sx={{ mt: 3 }}>
               <LineChart data={chartData}/>
+              <BoxPlot data={chartData}/>
             </Box>
           )}
         
