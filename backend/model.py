@@ -60,8 +60,8 @@ class HousingModel:
 
         train_data=train_data.select_dtypes(exclude=[object])
 
-        # train_data['Landsize']=np.log(train_data['Landsize']+1)
-        # train_data['Age']=np.log(train_data['Age']+1)
+        train_data['Landsize']=np.log(train_data['Landsize']+1)
+        train_data['Age']=np.log(train_data['Age']+1)
         train_data['BedroomRatio']=train_data['Bedroom']/ train_data['Rooms']
         print(X_train)
         # num_cols = ['Bedroom', 'Price', 'Distance', 'Landsize']
@@ -78,8 +78,8 @@ class HousingModel:
 
         test_data=X_test.join(y_test)
         test_data=test_data.select_dtypes(exclude=[object])
-        # test_data['Landsize']=np.log(test_data['Landsize']+1)
-        # test_data['Age']=np.log(test_data['Age']+1)
+        test_data['Landsize']=np.log(test_data['Landsize']+1)
+        test_data['Age']=np.log(test_data['Age']+1)
         test_data['BedroomRatio']=test_data['Bedroom']/ test_data['Rooms']
         X_test,y_test=test_data.drop(['Price'],axis=1),test_data['Price']
 
