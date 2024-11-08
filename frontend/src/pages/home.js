@@ -9,7 +9,7 @@ const Home = () => {
     const [expandedIndex, setExpandedIndex] = useState(null);
 
     {/* Expand Function */}
-    const Expand = (index) => {
+    const expand = (index) => {
       if (expandedIndex === index) {
         setExpandedIndex(null); 
       } else {
@@ -18,7 +18,7 @@ const Home = () => {
     };
 
     {/* Scroll Down to Pane Function */}
-    const Scroll = () => {
+    const scroll = () => {
       const faqElement = document.getElementById('faq');
       if (faqElement) {
         faqElement.scrollIntoView({ behavior: 'smooth' });
@@ -72,7 +72,7 @@ const Home = () => {
                         {/* Scroll Button */}
                         <Button
                             variant="outlined"
-                            onClick={Scroll}
+                            onClick={scroll}
                             sx={{
                                 borderColor: 'white',
                                 color: 'black',
@@ -153,7 +153,7 @@ const Home = () => {
                         ].map((item, index) => (
                             <div key={index} className="border-b border-gray-300 py-4">
                                 <div
-                                    onClick={() => Expand(index)}
+                                    onClick={() => expand(index)}
                                     className="flex justify-between items-center cursor-pointer"
                                 >
                                     <h2 className="font-medium text-lg sm:text-xl md:text-2xl text-black">{item.question}</h2>
