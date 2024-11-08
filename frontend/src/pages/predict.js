@@ -1,7 +1,7 @@
 import React, { useState , useRef} from 'react';
 import axios from 'axios';
 import { Line } from 'react-chartjs-2';
-import { TextField, Button, Container, Typography, Box, Paper } from '@mui/material';
+import { TextField, Button, Container, Typography, Box, Paper, Dialog, DialogActions, DialogContent, DialogTitle } from '@mui/material';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Grid from '@mui/material/Grid2'; 
@@ -22,9 +22,36 @@ function Predict() {
   const [predictedprice, setPredictedprice] = useState(0);
   const [category, setPredictedCategory] = useState("");
   
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [errorMsgs, setErrorMsgs] = useState([]);
+
+  const validate = () => {
+    let errorMsg = [];
+
+    if (rooms < 1 || rooms > 10) errorMsg.push("Number of rooms must be between 0 and 10.");
+    if (distances < 0 || distances > 50) errorMsg.push("Distance to CBD (in km) must be between 0 and 50.");
+    if (bedroom < 1 || bedroom > 10) errorMsg.push ("Number of bedrooms must be between 0 and 10.");
+    if (bathroom < 1 || bathroom > 5) errorMsg.push ("Number of bathrooms must be between 0 and 5.");
+    if (car < 0 || car > 5) errorMsg.push ("Number of car spaces must be between 0 and 4.");
+    if (landsize < 50 || landsize > 1000) errorMsg.push ("Landsize must be between 50 and 500m².");
+    if (propertycount < 250 || propertycount > 20000) errorMsg.push ("Property count must be between 250 and 20000.");
+    if (age < 5 || age > 100) errorMsg.push ("Property age must be between 5 and 100 years old.");
+
+    return errorMsg;
+  };
+
   const handleSubmit = async (e) => {
+
     e.preventDefault();
     setPredictedprice(0);
+
+    const errors = validate();
+    if (errors.length > 0) {
+      setErrorMsgs(errors);
+      setDialogOpen(true); 
+      return;
+    }
+
     const payload = { rooms, distances, bedroom, bathroom, car, landsize, propertycount, age };
 
     try {
@@ -47,6 +74,11 @@ function Predict() {
     } catch (err) {
       console.error(err);
     }
+  };
+
+  const closeDialog = () => {
+    setDialogOpen(false);
+    setErrorMsgs([]);
   };
 
   const theme = createTheme({
@@ -220,6 +252,19 @@ function Predict() {
           )}
         
         </Box>
+        <Dialog open={dialogOpen} onClose={closeDialog}>
+          <DialogTitle>Error - Cannot Proceed Until the Following Are Resolved</DialogTitle>
+          <DialogContent>
+            <Typography variant="body2">
+              {errorMsgs.map((msg, index) => (
+                <p key={index}>{msg}</p>
+              ))}
+            </Typography>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={closeDialog} color="primary">Close</Button>
+          </DialogActions>
+        </Dialog>
       </Container>
     </ThemeProvider>
   );
