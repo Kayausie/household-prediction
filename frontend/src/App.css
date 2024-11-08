@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.App {
+  text-align: center;
+}
+
+.dmSansButton {
+  font-family: 'DM Sans', sans-serif;
+  color: white; /* Default text color */
+  background-color: transparent; /* Initial background color */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+  padding: 8px 16px; /* Padding around the text */
+  font-size: 18px; /* Adjust font size if needed */
+  font-weight: 550; /* Use 500 weight for medium */
+  border: none; /* Remove default border */
+  cursor: pointer; /* Change cursor to pointer */
+}
+
+.dmSansButton:hover {
+  background-color: #043873; /* Change background color on hover */
+}
+.aboutCard p,h6{
+  color: white;
+}
+button:hover{
+  cursor:pointer;
+}
+.loginButton {
+  border: 1px solid white;
+  color: white;
+  border-radius: 20px;
+  text-transform: none;
+  margin-right: 1em;
+  padding: 6px 16px;
+  background-color: transparent;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+.loginButton:hover {
+  background-color: rgba(255, 255, 255, 0.373);
+  border-color: white;
+}
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
