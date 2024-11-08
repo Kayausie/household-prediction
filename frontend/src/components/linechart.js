@@ -1,5 +1,6 @@
 import * as d3 from 'd3';
 import { useEffect, useRef } from 'react';
+import { Button } from '@mui/material';
 
 const LineChart = ({ data }) => {
   const svgRef = useRef();
@@ -109,7 +110,43 @@ const LineChart = ({ data }) => {
     svg.call(zoom);
   }, [data]);
 
-  return <svg ref={svgRef}></svg>;
+  // Export function to convert SVG to PNG image
+  const exportToImage = () => {
+    const svgElement = svgRef.current;
+    const serializer = new XMLSerializer();
+    const svgString = serializer.serializeToString(svgElement);
+    const canvas = document.createElement("canvas");
+    const context = canvas.getContext("2d");
+
+    const image = new Image();
+    const svgBlob = new Blob([svgString], { type: "image/svg+xml" });
+    const url = URL.createObjectURL(svgBlob);
+
+    image.onload = () => {
+      canvas.width = image.width;
+      canvas.height = image.height;
+      context.drawImage(image, 0, 0);
+      const imgUrl = canvas.toDataURL("image/png");
+
+      const link = document.createElement("a");
+      link.href = imgUrl;
+      link.download = "chart.png";
+      link.click();
+    };
+
+    image.src = url;
+  };
+
+  return (
+    <div>
+      <svg ref={svgRef}></svg>
+      <Button sx={{
+                  backgroundColor: '#043873',
+                  color: 'white',
+                  '&:hover': { backgroundColor: 'white', color: '#043873' },
+                }} onClick={exportToImage} variant="contained">Download Chart as Image</Button>
+    </div>
+  );
 };
 
 export default LineChart;

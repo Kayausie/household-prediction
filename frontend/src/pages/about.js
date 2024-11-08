@@ -5,7 +5,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#1976d2',
+      main: '#043873',
     },
     secondary: {
       main: '#dc004e',
@@ -46,7 +46,7 @@ function About() {
               Contact Us
             </Typography>
             <Typography variant="body1" >
-              If you have any questions or feedback, feel free to reach out to us at support@example.com.
+              If you have any questions or feedback, feel free to reach out to us at house.ai@support.com
             </Typography>
           </Paper>
         </Box>
