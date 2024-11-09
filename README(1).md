@@ -15,8 +15,12 @@
     in powershell or bash:
     npm run build or npm start dev
 
+    URL: http://localhost:3000/
+
 3. Starting up back-end
     in powershell or bash
 
     cd backend
     uvicorn main:app --reload
+
+    URL: http://127.0.0.1:8000/
