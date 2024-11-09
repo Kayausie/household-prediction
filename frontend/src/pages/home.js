@@ -32,12 +32,7 @@ const Home = () => {
             <img
               src="/hero.jpeg"
               alt="house hero image"
-              style={{
-                  objectFit: 'cover',
-                  objectPosition: 'center',
-                  width: '100%',
-                  height: '100%',
-              }}
+              class="object-cover object-center w-full h-full"
             />
             </div>
             {/* Centre Box */}
@@ -97,34 +92,26 @@ const Home = () => {
                 <img
                     src="house-search.png"
                     alt="illustration"
-                    style={{
-                      width: '25%',
-                      height: '25%',
-                    }}
-
+                    className="w-1/3 md:w-1/4 lg:w-1/5 h-auto"
+                    />
                     
-                />
+                
                 <img
                   src="/illustration.svg"
                   alt="illustration"
-                  style={{
-                      width: '540px',
-                      height: '360px',
-                  }}
-                />
+
+                  className="w-1/3 md:w-1/4 lg:w-1/5 h-auto"
+                  />
                 <img
                     src="/illustration2.svg"
                     alt="illustration"
-                    style={{
-                        width: '540px',
-                        height: '360px',
-                    }}
+                    className="w-1/3 md:w-1/4 lg:w-1/5 h-auto"
                 />
             </div>
 
             {/* FAQ Heading */}
             <div className="absolute inset-x-0 top-[calc(100vh+465px)] z-10 flex justify-center items-center mb-10">
-              <h1 className="text-3xl font-bold text-black">FAQ - Insight on Us</h1>
+              <h1 className="text-3xl font-bold text-white">FAQ - Insight on Us</h1>
             </div>
 
             {/* FAQ and Side Image*/}
@@ -132,14 +119,10 @@ const Home = () => {
                   <div className="w-full md:w-[85%] lg:w-[70%] flex flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-8">
                     {/* Side Image */}
                     <div className="w-full md:w-1/2 lg:w-1/2 flex-shrink-0">
-                      <img
+                    <img
                         src="/side_img.jpeg"
                         alt="side image"
-                        className="shadow-lg object-cover"
-                        style={{
-                          width: '100%',
-                          height: 'auto',
-                        }}
+                        class="shadow-lg object-cover w-full h-auto"
                       />
                     </div>
                     {/* FAQ Pane */}
