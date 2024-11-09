@@ -6,14 +6,14 @@ const BoxPlot = ({ data }) => {
 
     const plotData = [{
         type: 'box',
-        y: predictions,
-        boxpoints: 'outliers',
-        jitter: 0.5,
-        pointpos: 0,
         name: 'Prediction',
         marker: {
-            color: '#032B5D',
-        },
+          color: 'rgb(8,81,156)',
+      },
+        boxpoints: 'outliers',
+        y: predictions,
+        jitter: 0.5,
+        pointpos: 0,
     }];
 
     const layout = {

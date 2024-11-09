@@ -7,6 +7,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Grid from '@mui/material/Grid2'; 
 import LineChart from '../components/linechart';
 import BoxPlot from '../components/boxplot';
+import ScatterPlot from '../components/scatterplot';
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
 function Predict() {
@@ -28,10 +29,10 @@ function Predict() {
   const validate = () => {
     let errorMsg = [];
 
-    if (rooms < 1 || rooms > 10) errorMsg.push("Number of rooms must be between 0 and 10.");
-    if (distances < 0 || distances > 50) errorMsg.push("Distance to CBD (in km) must be between 0 and 50.");
-    if (bedroom < 1 || bedroom > 10) errorMsg.push ("Number of bedrooms must be between 0 and 10.");
-    if (bathroom < 1 || bathroom > 5) errorMsg.push ("Number of bathrooms must be between 0 and 5.");
+    if (rooms < 1 || rooms > 10) errorMsg.push("Number of rooms must be between 1 and 10.");
+    if (distances < 0 || distances > 50) errorMsg.push("Distance to CBD (in km) must be between 1 and 50.");
+    if (bedroom < 1 || bedroom > 10) errorMsg.push ("Number of bedrooms must be between 1 and 10.");
+    if (bathroom < 1 || bathroom > 5) errorMsg.push ("Number of bathrooms must be between 1 and 5.");
     if (car < 0 || car > 5) errorMsg.push ("Number of car spaces must be between 0 and 4.");
     if (landsize < 50 || landsize > 1000) errorMsg.push ("Landsize must be between 50 and 500m².");
     if (propertycount < 250 || propertycount > 20000) errorMsg.push ("Property count must be between 250 and 20000.");
@@ -248,6 +249,7 @@ function Predict() {
             <Box sx={{ mt: 3 }}>
               <LineChart data={chartData}/>
               <BoxPlot data={chartData}/>
+              <ScatterPlot data={chartData}/>
             </Box>
           )}
         
