@@ -126,7 +126,7 @@ const Home = () => {
                       />
                     </div>
                     {/* FAQ Pane */}
-                    <div className="w-full md:w-1/2 lg:w-1/2 bg-gray-100 p-6 shadow-lg">
+                    <div className="w-full md:w-1/2 lg:w-1/2 bg-black p-6 shadow-lg">
                         {[
                             { question: "What is HouseAI?", answer: "HouseAI is a machine learning model developed by us to provide insights on housing. \
                               The mode provides real-time predictions through analsying a large data set of properties in Melbourne." },
@@ -139,11 +139,11 @@ const Home = () => {
                                     onClick={() => expand(index)}
                                     className="flex justify-between items-center cursor-pointer"
                                 >
-                                    <h2 className="font-medium text-lg sm:text-xl md:text-2xl text-black">{item.question}</h2>
-                                    <span className="text-black">{expandedIndex === index ? '-' : '+'}</span>
+                                    <h2 className="font-medium text-lg sm:text-xl md:text-2xl text-white">{item.question}</h2>
+                                    <span className="text-white">{expandedIndex === index ? '-' : '+'}</span>
                                 </div>
                                 {expandedIndex === index && (
-                                    <p className="mt-2 text-gray-700">{item.answer}</p>
+                                    <p className="mt-2 text-white">{item.answer}</p>
                                 )}
                             </div>
                         ))}
