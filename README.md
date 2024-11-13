@@ -1,26 +1,26 @@
-#How to get started
+# Project Name
 
-1. Installing the required packages
-    navigate to node.js website: https://nodejs.org/en/
-    download latest LTS version.
+## Overview
 
-    in powershell or bash:
-    pip install fastapi uvicorn sklearn numpy joblib
+This project includes a front-end and back-end setup, utilizing FastAPI for the back end and a Node.js-based front end. Follow the steps below to get the project running on your local machine.
 
+---
 
-    cd frontend
-    npm install
+## Prerequisites
 
-2. Starting up the front-end
-    in powershell or bash:
-    npm run build or npm start dev
+Ensure you have the following installed:
+- **Node.js:** Download the latest LTS version from [nodejs.org](https://nodejs.org/en/).
+- **Python packages:** FastAPI, Uvicorn, scikit-learn, numpy, and joblib.
 
-    URL: http://localhost:3000/
+---
 
-3. Starting up back-end
-    in powershell or bash
+## Installation
 
-    cd backend
-    uvicorn main:app --reload
+### 1. Install Required Packages
 
-    URL: http://127.0.0.1:8000/
+#### Back End (Python)
+
+In PowerShell or Bash, run the following command:
+
+```bash
+pip install fastapi uvicorn sklearn numpy joblib
